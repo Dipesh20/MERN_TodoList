@@ -1,7 +1,7 @@
 import { GET_DATA, DELETE_DATA, ADD_DATA } from '../actions/types';
 import axios from 'axios';
 export const getData = () => dispatch => {
-    axios.get('http://localhost:5000/api/items')
+    axios.get('api/items')
         .then(res => {
             console.log(res.data)
             return dispatch({
@@ -12,7 +12,7 @@ export const getData = () => dispatch => {
 
 }
 export const deleteData = (id) => dispatch => {
-    axios.delete('http://localhost:5000/api/items/' + id)
+    axios.delete('api/items/' + id)
         .then(res => {
             return dispatch({
                 type: DELETE_DATA,
@@ -21,7 +21,7 @@ export const deleteData = (id) => dispatch => {
         })
 }
 export const addData = (name) => dispatch => {
-    axios.post('http://localhost:5000/api/items/?name=' + name)
+    axios.post('api/items/?name=' + name)
         .then(res => {
             console.log(res.data);
             return dispatch({
